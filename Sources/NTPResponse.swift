@@ -44,7 +44,7 @@ func bestTime(fromResponses times: [[FrozenNetworkTime]]) -> FrozenNetworkTime? 
     return bestTimes.isEmpty ? nil : bestTimes[bestTimes.count / 2]
 }
 
-private extension NTPResponse {
+extension NTPResponse {
     var isValidResponse: Bool {
         return packet.stratum > 0 && packet.stratum < 16 &&
                packet.root_delay.durationInMilliseconds < maxRootDispersion &&

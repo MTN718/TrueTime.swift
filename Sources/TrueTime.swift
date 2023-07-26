@@ -23,6 +23,7 @@ public final class ReferenceTime: NSObject {
     @objc public var time: Date { return underlyingValue.time }
     @objc public var uptime: timeval { return underlyingValue.uptime }
     @objc public func now() -> Date { return underlyingValue.now() }
+    @objc public func response() -> [Int64] { return (underlyingValue as! FrozenNetworkTime).serverResponse.offsetValues }
 
     public convenience init(time: Date, uptime: timeval) {
         self.init(FrozenReferenceTime(time: time, uptime: uptime))
